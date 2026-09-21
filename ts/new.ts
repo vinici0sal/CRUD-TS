@@ -12,27 +12,28 @@ class Conta {
 
     Transferencia = (valor: number) => {
 
-        let ValorMin : number = Saldo - valor
 
-        if()
+        if (valor >  Saldo) {
+            while(valor > Saldo){
+                console.log(`O valor digitado é um valor acima do saldo disponivel, digite novamente`)
+                valor = Number(Read.question(`Digite o valor para transferir, saldo dispon9vel ${Saldo}`))
+            }
+        }
 
-        return this.Saldo
+        let ValorMin: number = Saldo - valor
+
+        return this.Saldo = ValorMin
+
+        
     }
 }
 
 
-let Saldo: number = Number(
-    Read.question("Digite o saldo: ")
-)
+let Saldo: number = Number(Read.question("Digite o saldo: "))
 
-let Titular: string = String(
-    Read.question("Digite o nome do titular da conta: ")
-)
+let Titular: string = String(Read.question("Digite o nome do titular da conta: "))
 
 let Banco: Conta = new Conta(Saldo, Titular)
+let Transf: number = Number(Read.question("Digite o valor a transferir: "))
 
-let Transf: number = Number(
-    Read.question("Digite o valor a transferir: ")
-)
-
-Banco.Transferencia(Transf)
+console.log(Banco.Transferencia(Transf))
